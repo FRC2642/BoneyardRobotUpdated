@@ -11,8 +11,10 @@ import edu.wpi.first.wpilibj2.command.Commands;
 public class RobotContainer {
   public XboxController control = new XboxController(0);
   public ShooterSubsystem shootsub = new ShooterSubsystem();
+  public MagazineSubsystem mag = new MagazineSubsystem();
   public RobotContainer() {
     shootsub.setDefaultCommand(new ShooterCommand(shootsub, control));
+    mag.setDefaultCommand(new RunMagazineCommand(control, mag));
     configureBindings();
   }
 
