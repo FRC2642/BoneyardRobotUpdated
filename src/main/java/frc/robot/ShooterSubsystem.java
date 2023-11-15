@@ -9,17 +9,17 @@ import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
-public class IntakeSubsystem extends SubsystemBase {
+public class ShooterSubsystem extends SubsystemBase {
   /** Creates a new IntakeSubsystem. */
-  public IntakeSubsystem() {}
+  public ShooterSubsystem() {}
 
-  CANSparkMax intakeMotorL = new CANSparkMax( 6,MotorType.kBrushless);
-  CANSparkMax intakeMotorR = new CANSparkMax( 5,MotorType.kBrushless);
+  CANSparkMax shooterMotorL = new CANSparkMax( 11,MotorType.kBrushless);
+  CANSparkMax shooterMotorR = new CANSparkMax( 12,MotorType.kBrushless);
 
   public void runIntake(double speed)
   {
-    intakeMotorL.set(speed);
-    intakeMotorR.set(speed * -1);
+    shooterMotorL.set(speed);
+    shooterMotorR.set(speed * -1);
   }
 
   @Override
