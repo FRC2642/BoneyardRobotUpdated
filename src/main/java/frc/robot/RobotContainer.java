@@ -4,13 +4,25 @@
 
 package frc.robot;
 
+import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
+import frc.commands.ArmRotatorCommand;
+import frc.commands.IntakeCommand;
+import subsystems.ArmRotatorSubsystem;
+import subsystems.IntakeSubsystem;
 
 public class RobotContainer {
+  public XboxController control = new XboxController(0);
+  public IntakeSubsystem intake = new IntakeSubsystem();
+  public ArmRotatorSubsystem armRotator = new ArmRotatorSubsystem();
   public RobotContainer() {
     configureBindings();
+    intake.setDefaultCommand(new IntakeCommand(control, intake, false));
+    armRotator.setDefaultCommand(new ArmRotatorCommand(control, armRotator));
   }
+
+  
 
   private void configureBindings() {}
 

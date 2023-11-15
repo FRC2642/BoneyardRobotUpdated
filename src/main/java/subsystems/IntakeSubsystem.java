@@ -7,18 +7,36 @@ package subsystems;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
+import edu.wpi.first.wpilibj.PneumaticHub;
+import edu.wpi.first.wpilibj.PneumaticsControlModule;
+import edu.wpi.first.wpilibj.Solenoid;
+import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
+import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class IntakeSubsystem extends SubsystemBase {
 
-  private CANSparkMax intakeMotor = new CANSparkMax(0, MotorType.kBrushless);
+  private CANSparkMax intakeMotor = new CANSparkMax(4, MotorType.kBrushless);
+  private PneumaticsControlModule pneumatics = new PneumaticsControlModule(1);
 
+  private DoubleSolenoid leftSolenoid = pneumatics.makeDoubleSolenoid(0, 1);
 
   /** Creates a new IntakeSubsystem. */
-  public IntakeSubsystem() {}
+  public IntakeSubsystem() {
+  }
+
 
   public void spinIntake(double speed){
     intakeMotor.set(speed);
+  }
+
+  public void setIntake(boolean intakeExtended){
+    if (intakeExtended){
+      leftSolenoid.set(Value.kForward);
+    }
+    else{
+      leftSolenoid.set(Value.kReverse);
+    }
   }
 
   @Override
