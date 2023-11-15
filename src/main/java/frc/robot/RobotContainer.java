@@ -16,7 +16,11 @@ public class RobotContainer {
   public XboxController control = new XboxController(0);
   public IntakeSubsystem intake = new IntakeSubsystem();
   public ArmRotatorSubsystem armRotator = new ArmRotatorSubsystem();
+  public ShooterSubsystem shootsub = new ShooterSubsystem();
+  public MagazineSubsystem mag = new MagazineSubsystem();
   public RobotContainer() {
+    shootsub.setDefaultCommand(new ShooterCommand(shootsub, control));
+    mag.setDefaultCommand(new RunMagazineCommand(control, mag));
     configureBindings();
     intake.setDefaultCommand(new IntakeCommand(control, intake, false));
     armRotator.setDefaultCommand(new ArmRotatorCommand(control, armRotator));
