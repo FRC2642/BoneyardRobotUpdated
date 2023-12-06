@@ -2,7 +2,7 @@
 // Open Source Software; you can modify and/or share it under the terms of
 // the WPILib BSD license file in the root directory of this project.
 
-package frc.robot;
+package frc.robot.subsystems;
 
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
@@ -16,7 +16,8 @@ public class ShooterSubsystem extends SubsystemBase {
   CANSparkMax shooterMotorL = new CANSparkMax( 11,MotorType.kBrushless);
   CANSparkMax shooterMotorR = new CANSparkMax( 12,MotorType.kBrushless);
 
-  public void runIntake(double speed)
+  //Runs Shooter Outtake or Intake at speed set in ShooterCommand
+  public void runShooter(double speed)
   {
     shooterMotorL.set(speed);
     shooterMotorR.set(speed * -1);

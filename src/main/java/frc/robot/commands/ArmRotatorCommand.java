@@ -2,11 +2,11 @@
 // Open Source Software; you can modify and/or share it under the terms of
 // the WPILib BSD license file in the root directory of this project.
 
-package frc.commands;
+package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import subsystems.ArmRotatorSubsystem;
+import frc.robot.subsystems.ArmRotatorSubsystem;
 
 public class ArmRotatorCommand extends CommandBase {
   private XboxController auxController;
@@ -28,7 +28,10 @@ public class ArmRotatorCommand extends CommandBase {
   @Override
   public void execute() {
     double speed = auxController.getRightY();
+    System.out.println(armRotator.getTilt());
 
+    /*Right Stick Up moves arm up, Right Stick Down moves arm down.
+    Idle when Right Stick not Pressed, Moved Left, or Moved Right*/
     if(Math.abs(speed) < 0.1){
     armRotator.rotateArm(0);
     }

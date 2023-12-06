@@ -2,11 +2,12 @@
 // Open Source Software; you can modify and/or share it under the terms of
 // the WPILib BSD license file in the root directory of this project.
 
-package frc.robot;
+package frc.robot.commands;
 
 
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.subsystems.ShooterSubsystem;
 
 public class ShooterCommand extends CommandBase {
   /** Creates a new IntakeCommand. */
@@ -30,22 +31,23 @@ public class ShooterCommand extends CommandBase {
   @Override
   public void execute() 
   {
-   
+    /*Up D-Pad is Full Outtake, Right D-Pad is Half Outtake,
+    Down D-Pad is Full Intake, Left D-Pad is Half Intake.*/
     if (control.getPOV() == 0){
-      shootsub.runIntake(1);
+      shootsub.runShooter(1);
     }
     else if (control.getPOV() == 90){
-      shootsub.runIntake(0.5);
+      shootsub.runShooter(0.5);
     }
     else if (control.getPOV() == 180){
-      shootsub.runIntake(-1);
+      shootsub.runShooter(-1);
     }    
     else if (control.getPOV() == 270){
-      shootsub.runIntake(-0.5);
+      shootsub.runShooter(-0.5);
     }
     else
     {
-      shootsub.runIntake(0);
+      shootsub.runShooter(0);
     }
 
 
