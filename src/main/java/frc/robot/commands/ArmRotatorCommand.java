@@ -28,7 +28,7 @@ public class ArmRotatorCommand extends CommandBase {
   @Override
   public void execute() {
     double speed = auxController.getRightY();
-    System.out.println(armRotator.getTilt());
+    ////System.out.println(armRotator.getTilt());
 
     /*Right Stick Up moves arm up, Right Stick Down moves arm down.
     Idle when Right Stick not Pressed, Moved Left, or Moved Right*/

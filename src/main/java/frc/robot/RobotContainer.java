@@ -7,6 +7,8 @@ package frc.robot;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
+import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
+import edu.wpi.first.wpilibj2.command.button.Trigger;
 import frc.robot.commands.ArmRotatorCommand;
 import frc.robot.commands.IntakeCommand;
 import frc.robot.commands.RunMagazineCommand;
@@ -32,7 +34,8 @@ public class RobotContainer {
 
   
 
-  private void configureBindings() {}
+  private void configureBindings() {
+  }
 
   public Command getAutonomousCommand() {
     return Commands.print("No autonomous command configured");

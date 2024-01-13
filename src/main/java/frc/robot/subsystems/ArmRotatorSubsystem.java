@@ -6,6 +6,7 @@ package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.TalonSRXControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+import com.revrobotics.RelativeEncoder;
 
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -15,6 +16,7 @@ public class ArmRotatorSubsystem extends SubsystemBase {
   public ArmRotatorSubsystem() {}
 
   private TalonSRX talon = new TalonSRX(13);
+  
   private Encoder tiltEncoder = new Encoder(0, 1);
 
   @Override
@@ -28,6 +30,6 @@ public class ArmRotatorSubsystem extends SubsystemBase {
   }
 
   public double getTilt(){
-    return tiltEncoder.getDistance();
+    return talon.getSelectedSensorPosition();
   }
 }
