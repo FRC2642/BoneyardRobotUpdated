@@ -7,6 +7,7 @@ package frc.robot;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
+import frc.robot.Commands.MotorCommand;
 import frc.robot.Subsystems.MotorSubsystem;
 
 public class RobotContainer {
@@ -17,6 +18,8 @@ public class RobotContainer {
   private final XboxController control = new XboxController(0);
 
   public RobotContainer() {
+    motor.setDefaultCommand(new MotorCommand(motor, control));
+
     configureBindings();
   }
 

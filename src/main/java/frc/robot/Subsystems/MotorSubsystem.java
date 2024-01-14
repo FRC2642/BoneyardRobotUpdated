@@ -12,7 +12,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 public class MotorSubsystem extends SubsystemBase {
   private CANSparkMax motor1 = new CANSparkMax(0, MotorType.kBrushless);
 
-  public void runMotor1(double motorspeed) {
+  public void runMotor(double motorspeed) {
     motor1.set(motorspeed);
   }
 

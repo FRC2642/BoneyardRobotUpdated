@@ -4,12 +4,20 @@
 
 package frc.robot.Commands;
 
+import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.Subsystems.MotorSubsystem;
 
 public class MotorCommand extends CommandBase {
   /** Creates a new MotorCommand. */
-  public MotorCommand() {
-    
+  MotorSubsystem motor;
+  XboxController control;
+
+  public MotorCommand(MotorSubsystem motorIN, XboxController controlIN) {
+    this.motor = motorIN;
+    this.control = controlIN;
+
+    addRequirements(motorIN);
     // Use addRequirements() here to declare subsystem dependencies.
   }
 
@@ -19,7 +27,9 @@ public class MotorCommand extends CommandBase {
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
-  public void execute() {}
+  public void execute() {
+    motor.runMotor(control.getLeftTriggerAxis());
+  }
 
   // Called once the command ends or is interrupted.
   @Override
