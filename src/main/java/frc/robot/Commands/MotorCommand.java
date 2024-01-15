@@ -28,7 +28,11 @@ public class MotorCommand extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    motor.runMotor(control.getLeftTriggerAxis());
+    if (control.getAButton()) {
+      motor.runMotor(1 * (control.getRightTriggerAxis()*0.9 + 0.1)); // default run speed 0.1 max 1 when right trigger used
+    } else {
+      motor.runMotor(0);
+    }
   }
 
   // Called once the command ends or is interrupted.
