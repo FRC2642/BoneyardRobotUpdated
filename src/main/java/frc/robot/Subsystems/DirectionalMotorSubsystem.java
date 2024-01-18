@@ -11,21 +11,17 @@ import com.revrobotics.SparkMaxAnalogSensor.Mode;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
-public class MotorSubsystem extends SubsystemBase {
-  private CANSparkMax motor1 = new CANSparkMax(0, MotorType.kBrushless);
+public class DirectionalMotorSubsystem extends SubsystemBase {
+  /** Creates a new DirectionalMotorSubsystem. */
+  private CANSparkMax motor2 = new CANSparkMax(0, MotorType.kBrushless);
 
-  //private SparkMaxAnalogSensor absEncoder1 = motor1.getAnalog(Mode.kAbsolute);
+  private SparkMaxAnalogSensor motor2encoder = motor2.getAnalog(Mode.kAbsolute);
 
-  public void runMotor(double motorspeed) {
-    motor1.set(motorspeed);
-  }
+  public void runMotor(double speed) {motor2.set(speed);}
 
-  /*public double getEncoder1Value() {
-    return absEncoder1.getPosition() / 4096 * 360;
-  }*/
+  public double getMotorEncoderValue() {return motor2encoder.getPosition() / 4096 * 360;} // returns the angle
 
-  /** Creates a new MotorSubsystem. */
-  public MotorSubsystem() {}
+  public DirectionalMotorSubsystem() {}
 
   @Override
   public void periodic() {
