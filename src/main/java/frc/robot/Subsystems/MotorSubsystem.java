@@ -17,10 +17,6 @@ public class MotorSubsystem extends SubsystemBase {
     motor1.set(motorspeed);
   }
 
-  /*public double getEncoder1Value() {
-    return absEncoder1.getPosition() / 4096 * 360;
-  }*/
-
   /** Creates a new MotorSubsystem. */
   public MotorSubsystem() {}
 
