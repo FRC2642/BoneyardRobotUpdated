@@ -28,7 +28,7 @@ public class DirectionalMotorCommand extends CommandBase {
   @Override
   public void initialize() {
     startingAngle = motor.getMotorEncoderValue() % 360;
-    angleDiff = Math.floor(motor.getMotorEncoderValue() / 360);
+    angleDiff = Math.floor(motor.getMotorEncoderValue() / 360); // The encoder output divided by 360 with no decimal
   }
 
   // Called every time the scheduler runs while the command is scheduled.
