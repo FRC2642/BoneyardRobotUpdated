@@ -5,10 +5,7 @@
 package frc.robot.Subsystems;
 
 import com.revrobotics.CANSparkMax;
-import com.revrobotics.SparkMaxAnalogSensor;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
-import com.revrobotics.SparkMaxAnalogSensor.Mode;
-
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class MotorSubsystem extends SubsystemBase {
